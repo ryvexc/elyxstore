@@ -4,6 +4,7 @@ import { QueryError } from "mysql2";
 import { AES, enc } from "crypto-ts";
 import { serialize } from "cookie";
 import clientPromise from "@/lib/mongodb";
+import { redirect } from "next/navigation";
 
 export interface IDataUser {
   _id?: string;
@@ -42,6 +43,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
       serialize("userdata", `${JSON.stringify(userdata)}`, { path: "/" }),
     ]);
     response.redirect("/home");
+    redirect("/home");
   } catch (e) {
     console.error(e);
   }
