@@ -5,6 +5,7 @@ import { AES, enc } from "crypto-ts";
 import { serialize } from "cookie";
 import clientPromise from "@/lib/mongodb";
 import { redirect } from "next/navigation";
+import { setCookie } from "cookies-next";
 
 export interface IDataUser {
   _id?: string;
@@ -26,23 +27,25 @@ export default async function handler(request: NextApiRequest, response: NextApi
 
     const data = await db
       .collection("users")
-      .find({ username: request.body.username })
+      .find({ username: JSON.parse(request.body).username })
       .limit(1)
       .toArray();
     
     data.forEach((user: any) => {
-      if (AES.decrypt(user.password, process.env.KEY as string).toString(enc.Utf8) === request.body.password) {
+      if (AES.decrypt(user.password, process.env.KEY as string).toString(enc.Utf8) === JSON.parse(request.body).password) {
         dataCount++;
         userdata = user;
       }
     });
 
-    if (dataCount == 0) response.json({status: false});
-    response.setHeader("Set-Cookie", [
-      serialize("clientLogged", "true", { path: "/" }),
-      serialize("userdata", `${JSON.stringify(userdata)}`, { path: "/" }),
-    ]);
-    response.json({status: true});
+    if (dataCount == 0) response.json({ status: false });
+    setCookie("clientLogged", "true", { path: "/" });
+    setCookie("userdata", `${JSON.stringify(userdata)}`, { path: "/" });
+    // response.setHeader("Set-Cookie", [
+    //   serialize("clientLogged", "true", { path: "/" }),
+    //   serialize("userdata", `${JSON.stringify(userdata)}`, { path: "/" }),
+    // ]);
+    response.json({ status: true });
   } catch (e) {
     console.error(e);
   }

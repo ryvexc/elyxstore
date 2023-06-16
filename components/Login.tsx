@@ -24,19 +24,22 @@ export default function Login(): JSX.Element {
   }
 
   const loginHandler = (e: any) => {
-    console.log(e.target.username.value);
-    console.log(e.target.password.value);
+    e.preventDefault();
 
-    // fetch("/api/auth", {
-    //   method: "POST",
-    // }).then(res => res.json())
-    //   .then((data: any) => {
-    //     if (data.status) {
-    //       redirect("/home");
-    //     } else {
-    //       redirect("/login");
-    //     }
-    //   })
+    fetch("/api/auth", {
+      method: "POST",
+      body: JSON.stringify({
+        username: e.target.username.value,
+        password: e.target.password.value,
+      })
+    }).then(res => res.json())
+      .then((data: any) => {
+        if (data.status) {
+          window.location.href = "/home";
+        } else {
+          window.location.href = "/login";
+        }
+      })
   }
 
   return <>
