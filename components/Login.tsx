@@ -3,6 +3,7 @@ import Heading from "./Heading";
 import Button from "@/material/Button";
 import Head from "next/head";
 import Background from "./Background";
+import { redirect } from "next/navigation";
 
 // prettier-ignore
 export default function Login(): JSX.Element {
@@ -20,6 +21,19 @@ export default function Login(): JSX.Element {
       signInWindow.current!.style.opacity = "1";
       signUpWindow.current!.style.opacity = "0";
     }
+  }
+
+  const loginHandler = () => {
+    fetch("/api/auth", {
+      method: "POST",
+    }).then(res => res.json())
+      .then((data: any) => {
+        if (data.status) {
+          redirect("/home");
+        } else {
+          redirect("/login");
+        }
+      })
   }
 
   return <>

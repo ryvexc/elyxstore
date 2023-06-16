@@ -37,13 +37,12 @@ export default async function handler(request: NextApiRequest, response: NextApi
       }
     });
 
-    if (dataCount == 0) response.redirect("/login");
+    if (dataCount == 0) response.json({status: false});
     response.setHeader("Set-Cookie", [
       serialize("clientLogged", "true", { path: "/" }),
       serialize("userdata", `${JSON.stringify(userdata)}`, { path: "/" }),
     ]);
-    response.redirect("/home");
-    redirect("/home");
+    response.json({status: true});
   } catch (e) {
     console.error(e);
   }
