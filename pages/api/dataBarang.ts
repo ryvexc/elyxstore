@@ -45,7 +45,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         .sort({ nama: 1 })
         .toArray();
 
-    res.json(items);
+    res.status(200).json(items);
   } catch (e) {
     console.error(e);
   }
