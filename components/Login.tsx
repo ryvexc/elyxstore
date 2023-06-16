@@ -23,17 +23,20 @@ export default function Login(): JSX.Element {
     }
   }
 
-  const loginHandler = () => {
-    fetch("/api/auth", {
-      method: "POST",
-    }).then(res => res.json())
-      .then((data: any) => {
-        if (data.status) {
-          redirect("/home");
-        } else {
-          redirect("/login");
-        }
-      })
+  const loginHandler = (e: any) => {
+    console.log(e.target.username.value);
+    console.log(e.target.password.value);
+
+    // fetch("/api/auth", {
+    //   method: "POST",
+    // }).then(res => res.json())
+    //   .then((data: any) => {
+    //     if (data.status) {
+    //       redirect("/home");
+    //     } else {
+    //       redirect("/login");
+    //     }
+    //   })
   }
 
   return <>
@@ -46,7 +49,7 @@ export default function Login(): JSX.Element {
         <div ref={closingWindow} className="z-[1] p-7 w-6/12 left-2/4 h-full bg-[#ffffff13] absolute duration-500"></div>
 
         <div ref={signInWindow} className="duration-300 p-14 w-6/12 h-full flex justify-center items-center opacity-100">
-          <form autoComplete="off" action="/api/auth" method="POST">
+          <form autoComplete="off" method="POST" onSubmit={loginHandler}>
             <Heading>Selamat Datang!</Heading>
             <p className="text-xs font-light mb-8 text-white">Selamat Datang! Silahkan masukkan akun anda.</p>
             <div className="relative w-full mb-4 group">
