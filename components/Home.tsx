@@ -26,6 +26,8 @@ export default function HOme({ stateBarang, searchMode }: IHomeProps): JSX.Eleme
   const promptBarang: React.RefObject<HTMLDivElement> = React.useRef(null);
   const promptInputState: any = React.useState<number>(0);
 
+  const queryBarang = useRouter().query["barang"];
+
   React.useEffect((): void => {
     manipulateURL("home", "Elyx Store - Home");
 
@@ -101,9 +103,9 @@ export default function HOme({ stateBarang, searchMode }: IHomeProps): JSX.Eleme
       <title>Elyx Store - Store</title>
     </Head>
     <div className="text-white w-full mb-4" ref={mainContent}>
-      {stateBarang.length > 0 && useRouter().query["barang"] != "" ?
+      {stateBarang.length > 0 && queryBarang != "" ?
         <h1 className="text-center mt-7 font-semibold animate__animated animate__fadeIn">
-          Menurut Hasil pencarian - {useRouter().query["barang"]} ({stateBarang.length})
+          Menurut Hasil pencarian - {queryBarang} ({stateBarang.length})
         </h1> : <></>
       }
       <div
@@ -113,7 +115,7 @@ export default function HOme({ stateBarang, searchMode }: IHomeProps): JSX.Eleme
         {stateBarang.length == 0 ?
           <h1>
             Tidak ada hasil dari pencarian{" "}
-            <b>'{useRouter().query["barang"]}</b>'
+            <b>{queryBarang}</b>
           </h1> : <></>
         }
         {stateBarang.map((item: IDataBarang) => {

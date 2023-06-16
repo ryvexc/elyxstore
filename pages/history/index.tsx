@@ -10,6 +10,7 @@ import InputCari from "@/material/InputCari";
 import Riwayat from "@/components/Riwayat";
 import IDataBarang from "@/interfaces/DataBarang";
 import Admin from "@/components/Admin";
+import Link from "next/link";
 
 export async function getServerSideProps({ query }: any) {
   const barang: string = query.barang || "";
@@ -47,9 +48,9 @@ export default function Index({ barang }: { barang: string }) {
       <Background className="animate__animated animate__fadeIn" />
       <div className="z-20 fixed animate__animated animate__fadeIn h-14 w-full flex justify-between bg-[#ffffff13] backdrop-blur-3xl">
         <div id="left-menu" className="pl-3 flex justify-center items-center">
-          <a href="/home" className="text-lg font-semibold tracking-wide">
+          <Link href="/home" className="text-lg font-semibold tracking-wide">
             Elyx Store
-          </a>
+          </Link>
         </div>
         <div id="center-menu" className="flex gap-x-8 items-center">
           <InputCari

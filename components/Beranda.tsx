@@ -3,14 +3,9 @@ import IFetchResponse from "@/interfaces/FetchResponse";
 import { getCookies } from "cookies-next";
 import { TmpCookiesObj } from "cookies-next/lib/types";
 import React from "react";
-import ReactDomServer from "react-dom/server";
 import PopupBarang from "@/material/PopupBarang";
-import { Main } from "next/document";
-import Horizontal from "@/material/Horizontal";
 import Button from "@/material/Button";
 import StatedRangeButton from "@/material/StatedRangeButton";
-import RangeButton from "@/material/RangeButton";
-
 import Head from "next/head";
 import manipulateURL from "@/database/urlcontroller";
 

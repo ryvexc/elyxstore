@@ -129,7 +129,7 @@ export default function Riwayat({ className }: IRiwayatProps): JSX.Element {
                   </p>
                   {data.dataBarang.map((barang: any, indexBarang: number) => {
                     return (
-                      <div className="flex">
+                      <div className="flex" key={barang._id}>
                         <div className="h-20 flex justify-center items-center max-h-20 aspect-square m-2 rounded-md">
                           <img className="w-full" src={barang.gambar} alt="" />
                         </div>
