@@ -40,7 +40,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
 
     if (dataCount == 0) response.json({ status: false });
     setCookie("clientLogged", "true", { path: "/" });
-    setCookie("userdata", `${JSON.stringify(userdata)}`, { path: "/" });
+    // setCookie("userdata", `${JSON.stringify(userdata)}`, { path: "/" });
     // response.setHeader("Set-Cookie", [
     //   serialize("clientLogged", "true", { path: "/" }),
     //   serialize("userdata", `${JSON.stringify(userdata)}`, { path: "/" }),
