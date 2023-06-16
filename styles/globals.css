@@ -1,9 +1,12 @@
+@import "animate.css/animate.min.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css";
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -77,6 +80,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: "Poppins";
 }
 
 html,
@@ -104,4 +108,105 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+@keyframes ud {
+  0% {
+    margin-bottom: 0px;
+    opacity: 1;
+  }
+  50% {
+    margin-bottom: 20px;
+    opacity: 1;
+  }
+  100% {
+    margin-bottom: 0px;
+    opacity: 1;
+  }
+}
+
+.animate-up-down {
+  animation: ud 4s infinite ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.overlay {
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.overlay-reverse {
+  animation: fadeOut 0.3s ease-in-out forwards;
+}
+
+.popup {
+  animation: zoomIn 0.5s ease-in-out forwards;
+  backdrop-filter: blur(20px);
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 17px;
+  height: 17px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1ca;
+  border-radius: 20px;
+  border: 7px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbfca;
+}
+
+.input-cari {
+  background-color: transparent;
+  font-size: 14px;
+  outline: none;
+  padding: 8px;
+  padding-left: 30px;
+  border-bottom: 1px solid #ffffffca;
+  border-color: #ffffffca;
+  transition: 0.3s;
+}
+
+.animasiHeight {
+  height: auto;
+  transition: height 0.5s ease-out;
+}
+
+.animasiHeightChildren {
+  height: auto;
 }
