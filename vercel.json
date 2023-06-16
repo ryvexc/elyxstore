@@ -1,0 +1,12 @@
+{
+  "functions": {
+    "pages/api/auth.js": {
+      "memory": 4096,
+      "maxDuration": 60
+    },
+    "pages/api/dataBarang.js": {
+      "memory": 4096,
+      "maxDuration": 30
+    }
+  }
+}

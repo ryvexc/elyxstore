@@ -97,7 +97,7 @@ export default function Profile({ className }: any): JSX.Element {
         <div className="opacity-1 flex flex-col gap-y-4 animasiHeight overflow-x-hidden">
           {dataBarang.length == 0 ?
             <h1 className="text-center font-light">
-              Tidak ada item dalam keranjang
+              Tidak ada item di toko anda
             </h1>
             : <></>}
 
