@@ -36,6 +36,7 @@
     "react-dom": "18.2.0",
     "sequelize": "^6.29.0",
     "tailwindcss": "^3.2.7",
+    "typeface-poppins": "^1.1.13",
     "typescript": "4.9.5"
   }
 }
