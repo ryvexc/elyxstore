@@ -5,6 +5,7 @@ import { AES, enc } from "crypto-ts";
 import { serialize } from "cookie";
 import clientPromise from "@/lib/mongodb";
 import { redirect } from "next/navigation";
+import { setCookie } from "cookies-next";
 
 export interface IDataUser {
   _id?: string;
@@ -39,13 +40,20 @@ export default async function handler(request: NextApiRequest, response: NextApi
       }
     });
 
-    if (dataCount == 0) response.redirect("/login");
-    response.setHeader("Set-Cookie", [
+    if (dataCount == 0) {
+      response.writeHead(302, { location: "/login" });
+      response.end();
+    }
+    // response.setHeader("Set-Cookie", [
+    //   serialize("clientLogged", "true", { path: "/" }),
+    //   serialize("userdata", `${JSON.stringify(userdata)}`, { path: "/" }),
+    // ]);
+    response.writeHead(302, { location: "/home", "Set-Cookie": [
       serialize("clientLogged", "true", { path: "/" }),
       serialize("userdata", `${JSON.stringify(userdata)}`, { path: "/" }),
-    ]);
-    response.redirect("/home");
+    ]});
+    response.end();
   } catch (e) {
-    console.error(e);
+    response.json({reason: e});
   }
 }
