@@ -16,9 +16,7 @@ export interface IDataUser {
   isAdmin: number;
 }
 
-module.exports = async (req: NextApiRequest, res: NextApiResponse) => {
-  await handler(req, res);
-};
+module.exports = handler;
 
 // prettier-ignore
 export default async function handler(request: NextApiRequest, response: NextApiResponse): Promise<Promise<void>> {
