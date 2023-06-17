@@ -17,4 +17,6 @@ export default async function handler(
         $set: { jumlah: request.body.jumlah, subtotal: request.body.subtotal },
       }
     );
+
+  response.end();
 }
