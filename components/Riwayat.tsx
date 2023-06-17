@@ -4,7 +4,7 @@ import IFetchResponse from "@/interfaces/FetchResponse";
 import { TmpCookiesObj } from "cookies-next/lib/types";
 import { getCookies } from "cookies-next";
 import ButtonStatus from "@/material/ButtonStatus";
-import manipulateURL from "@/database/urlcontroller";
+import manipulateURL from "@/lib/urlcontroller";
 import Head from "next/head";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStore } from "@fortawesome/free-solid-svg-icons";

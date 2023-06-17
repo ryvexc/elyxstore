@@ -1,11 +1,7 @@
-import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
-import db from "@/database/connection";
-import { QueryError } from "mysql2";
+import { NextApiRequest, NextApiResponse } from "next";
 import { AES, enc } from "crypto-ts";
 import { serialize } from "cookie";
 import clientPromise from "@/lib/mongodb";
-import { redirect } from "next/navigation";
-import { setCookie } from "cookies-next";
 
 export interface IDataUser {
   _id?: string;

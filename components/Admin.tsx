@@ -3,7 +3,7 @@ import React from "react";
 import Horizontal from "../material/Horizontal";
 import IFetchResponse from "@/interfaces/FetchResponse";
 import ButtonStatus from "@/material/ButtonStatus";
-import manipulateURL from "@/database/urlcontroller";
+import manipulateURL from "@/lib/urlcontroller";
 import { getCookies } from "cookies-next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStore } from "@fortawesome/free-solid-svg-icons";

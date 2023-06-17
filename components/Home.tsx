@@ -7,9 +7,9 @@ import Button from "@/material/Button";
 import StatedRangeButton from "@/material/StatedRangeButton";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import manipulateURL from "@/database/urlcontroller";
 import { faCartShopping, faStar, faStore } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import manipulateURL from "@/lib/urlcontroller";
 
 export interface IHomeProps {
   stateBarang: IDataBarang[];

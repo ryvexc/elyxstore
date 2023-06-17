@@ -7,7 +7,7 @@ import PopupBarang from "@/material/PopupBarang";
 import Button from "@/material/Button";
 import StatedRangeButton from "@/material/StatedRangeButton";
 import Head from "next/head";
-import manipulateURL from "@/database/urlcontroller";
+import manipulateURL from "@/lib/urlcontroller";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faStar, faStore } from "@fortawesome/free-solid-svg-icons";
 

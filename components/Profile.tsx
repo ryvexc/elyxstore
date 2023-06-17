@@ -3,7 +3,7 @@ import { TmpCookiesObj } from "cookies-next/lib/types";
 import Button from "@/material/Button";
 import React, { MouseEventHandler } from "react";
 import "@/public/default-profile.jpg";
-import manipulateURL from "@/database/urlcontroller";
+import manipulateURL from "@/lib/urlcontroller";
 import Head from "next/head";
 import Horizontal from "@/material/Horizontal";
 import { ObjectId } from "mongodb";

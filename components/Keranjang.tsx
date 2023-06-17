@@ -8,10 +8,9 @@ import RangeButton from "@/material/RangeButton";
 import { TmpCookiesObj } from "cookies-next/lib/types";
 import { getCookies } from "cookies-next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import Head from "next/head";
-import manipulateURL from "@/database/urlcontroller";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import manipulateURL from "@/lib/urlcontroller";
 
 export interface ITabelKeranjang {
   className?: string;
