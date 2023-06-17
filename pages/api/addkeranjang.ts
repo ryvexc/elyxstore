@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import db from "@/database/connection";
 import clientPromise from "@/lib/mongodb";
 
 export default async function handler(

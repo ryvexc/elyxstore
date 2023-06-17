@@ -1,6 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { QueryError } from "mysql2";
-import db from "@/database/connection";
 import clientPromise from "@/lib/mongodb";
 import { ObjectId } from "mongodb";
 
