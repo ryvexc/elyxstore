@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
 import db from "@/database/connection";
 import { QueryError } from "mysql2";
 import { AES, enc } from "crypto-ts";
@@ -15,6 +15,10 @@ export interface IDataUser {
   lastsearch: string;
   isAdmin: number;
 }
+
+module.exports = async (req: NextApiRequest, res: NextApiResponse) => {
+  await handler(req, res);
+};
 
 // prettier-ignore
 export default async function handler(request: NextApiRequest, response: NextApiResponse): Promise<Promise<void>> {
