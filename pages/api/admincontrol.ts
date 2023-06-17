@@ -23,8 +23,10 @@ export default async function handler(
     );
 
     response.writeHead(302, { location: "/admin" });
+    response.end();
   } catch (err) {
     console.error(err);
     response.status(500).json({ error: "Internal Server Error" });
+    response.end();
   }
 }
