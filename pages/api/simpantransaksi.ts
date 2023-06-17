@@ -59,9 +59,9 @@ export default async function handler(
     .collection("carts")
     .deleteMany({ username: request.body.username });
 
-  console.log(insertHistoryResult.insertedId && deleteResult.deletedCount > 0);
-
   if (insertHistoryResult.insertedId && deleteResult.deletedCount > 0)
     response.writeHead(302, { location: "/history" });
   else response.writeHead(302, { location: request.headers.referer! });
+
+  response.end();
 }

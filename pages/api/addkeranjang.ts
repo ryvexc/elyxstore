@@ -47,7 +47,7 @@ export default async function handler(
         response.writeHead(302, { location: "/history" });
       }
     } else {
-      const insertResult = await db.collection("carts").insertOne({
+      await db.collection("carts").insertOne({
         username: request.body.username,
         kodebrg: request.body.kodebarang,
         nama: request.body.namabarang,
