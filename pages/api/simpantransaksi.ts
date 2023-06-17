@@ -6,8 +6,6 @@ export default async function handler(
   request: NextApiRequest,
   response: NextApiResponse
 ): Promise<any> {
-  const POST = request.body;
-
   const client = await clientPromise;
   const db = client.db("ryve_store");
 
@@ -60,6 +58,8 @@ export default async function handler(
   const deleteResult = await db
     .collection("carts")
     .deleteMany({ username: request.body.username });
+
+  console.log(insertHistoryResult.insertedId && deleteResult.deletedCount > 0);
 
   if (insertHistoryResult.insertedId && deleteResult.deletedCount > 0)
     response.writeHead(302, { location: "/history" });
