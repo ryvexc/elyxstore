@@ -7,6 +7,8 @@ import manipulateURL from "@/database/urlcontroller";
 import Head from "next/head";
 import Horizontal from "@/material/Horizontal";
 import { ObjectId } from "mongodb";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function Profile({ className }: any): JSX.Element {
   const [userdata, setUserdata]: any = React.useState<TmpCookiesObj>({});
@@ -122,16 +124,16 @@ export default function Profile({ className }: any): JSX.Element {
                           .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")}
                       </p>
                       <div className="flex items-center gap-6">
-                        <i className="fa-solid fa-pen cursor-pointer hover:text-orange-500"
-                          onClick={(e) => window.location.href = `/edit?kodebrg=${data._id}`}>
-                        </i>
-                        <i
-                          className="fa fa-trash hover:text-red-500 cursor-pointer mr-4"
+                        <FontAwesomeIcon icon={faPen} className="cursor-pointer hover:text-orange-500"
+                          onClick={(e) => window.location.href = `/edit?kodebrg=${data._id}`}
+                        />
+                        <FontAwesomeIcon icon={faTrash}
+                          className="hover:text-red-500 cursor-pointer mr-4"
                           aria-hidden="true"
                           onClick={(e: any): void =>
                             deleteHandler(e, data._id)
                           }
-                        ></i>
+                        />
                       </div>
                     </div>
                   </div>

@@ -8,6 +8,8 @@ import StatedRangeButton from "@/material/StatedRangeButton";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import manipulateURL from "@/database/urlcontroller";
+import { faCartShopping, faStar, faStore } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export interface IHomeProps {
   stateBarang: IDataBarang[];
@@ -151,11 +153,11 @@ export default function HOme({ stateBarang, searchMode }: IHomeProps): JSX.Eleme
                     .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")}
                 </p>
                 <p className="text-xs font-light flex items-center opacity-70 mt-2 line-clamp-1">
-                  <i className="fa-solid fa-store mr-1"></i>
+                  <FontAwesomeIcon icon={faStore} className="mr-1"></FontAwesomeIcon>
                   {item.toko}
                 </p>
                 <p className="text-xs font-light flex items-center opacity-70 mt-1">
-                  <i className="fa-sharp fa-solid fa-star mr-1"></i> {item.rate}{" "}
+                  <FontAwesomeIcon icon={faStar} className="mr-1"></FontAwesomeIcon> {item.rate}{" "}
                   | Terjual {item.stok}+
                 </p>
               </div>
@@ -180,7 +182,7 @@ export default function HOme({ stateBarang, searchMode }: IHomeProps): JSX.Eleme
                 </h1>
                 <p className="font-light text-sm opacity-90">
                   Terjual {itemDataPrompt.terjual}+{" "}
-                  <i className="fa-sharp fa-solid fa-star mr-1 ml-2"></i>
+                  <FontAwesomeIcon icon={faStar} className="mr-1 ml-2" />
                   {itemDataPrompt.rate}
                   <span className="ml-3">Stok {itemDataPrompt.stok}</span>
                 </p>
@@ -191,7 +193,7 @@ export default function HOme({ stateBarang, searchMode }: IHomeProps): JSX.Eleme
                     .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")}
                 </p>
                 <div className="mt-4 flex items-center">
-                  <i className="fa-solid fa-store mr-2"></i>
+                  <FontAwesomeIcon icon={faStore} className="mr-1"></FontAwesomeIcon>
                   <p>{itemDataPrompt.toko}</p>
                 </div>
                 <div
@@ -214,7 +216,7 @@ export default function HOme({ stateBarang, searchMode }: IHomeProps): JSX.Eleme
                 </Button>
                 <StatedRangeButton state={promptInputState} />
                 <Button onClick={e => masukkanKeranjang(e, itemDataPrompt)}>
-                  Keranjang <i className="fa-solid fa-cart-shopping"></i>
+                  Keranjang <FontAwesomeIcon icon={faCartShopping} />
                 </Button>
               </div>
             </div>

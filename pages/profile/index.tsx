@@ -10,6 +10,8 @@ import InputCari from "@/material/InputCari";
 import Riwayat from "@/components/Riwayat";
 import IDataBarang from "@/interfaces/DataBarang";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping, faClockRotateLeft, faHouse, faShop, faTag, faUser } from "@fortawesome/free-solid-svg-icons";
 
 export async function getServerSideProps({ query }: any) {
   const barang: string = query.barang || "";
@@ -64,37 +66,37 @@ export default function Index({ barang }: { barang: string }) {
             className="text-white cursor-pointer"
             onClick={e => setContent(<Keranjang />)}
           >
-            <i className="fa-solid fa-cart-shopping"></i>
+            <FontAwesomeIcon icon={faCartShopping} />
           </p>
           <p
             className="text-white cursor-pointer"
             onClick={e => setContent(<Riwayat />)}
           >
-            <i className="fa-solid fa-clock-rotate-left"></i>
+            <FontAwesomeIcon icon={faClockRotateLeft} />
           </p>
           <p
             className="text-white cursor-pointer"
             onClick={e => setContent(<Home stateBarang={dataBarang} searchMode={!!barang} />)}
           >
-            <i className="fa-solid fa-shop"></i>
+            <FontAwesomeIcon icon={faShop} />
           </p>
           <p
             className="text-white cursor-pointer"
             onClick={e => setContent(<Beranda />)}
           >
-            <i className="fa-solid fa-house"></i>
+            <FontAwesomeIcon icon={faHouse} />
           </p>
           <p
             className="text-white cursor-pointer"
             onClick={e => window.location.href = "/admin"}
           >
-            <i className="fa-solid fa-tag"></i>
+            <FontAwesomeIcon icon={faTag} />
           </p>
           <p
             className="text-white cursor-pointer"
             onClick={e => setContent(<Profile />)}
           >
-            <i className="fa-solid fa-user"></i>
+            <FontAwesomeIcon icon={faUser} />
           </p>
         </div>
         <div

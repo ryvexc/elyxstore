@@ -1,4 +1,5 @@
 import React from "react";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
 interface IPopupBarang {
   children: any;

@@ -8,6 +8,8 @@ import Button from "@/material/Button";
 import StatedRangeButton from "@/material/StatedRangeButton";
 import Head from "next/head";
 import manipulateURL from "@/database/urlcontroller";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping, faStar, faStore } from "@fortawesome/free-solid-svg-icons";
 
 export default function Beranda(): JSX.Element {
   const earlyAnimation: any = React.useRef<null>(null);
@@ -174,12 +176,12 @@ export default function Beranda(): JSX.Element {
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")}
                   </p>
                   <p className="text-xs font-light flex items-center opacity-70 mt-2 line-clamp-1">
-                    <i className="fa-solid fa-store mr-1"></i>
-                    {item.toko}
+                    <FontAwesomeIcon icon={faStore} className="mr-1" />
+                    {" "}{item.toko}
                   </p>
                   <p className="text-xs font-light flex items-center opacity-70 mt-1">
-                    <i className="fa-sharp fa-solid fa-star mr-1"></i>{" "}
-                    {item.rate} | Terjual {item.stok}+
+                    <FontAwesomeIcon icon={faStar} className="mr-1" />
+                    {" "}{item.rate} | Terjual {item.stok}+
                   </p>
                 </div>
               </div>
@@ -206,7 +208,7 @@ export default function Beranda(): JSX.Element {
                 </h1>
                 <p className="font-light text-sm">
                   Terjual {itemDataPrompt.terjual}+{" "}
-                  <i className="fa-sharp fa-solid fa-star mr-1 ml-2"></i>
+                  <FontAwesomeIcon icon={faStar} className="mr-1 ml-2" />
                   {itemDataPrompt.rate}
                 </p>
                 <p className="font-semibold text-2xl mt-3">
@@ -232,7 +234,7 @@ export default function Beranda(): JSX.Element {
                 </Button>
                 <StatedRangeButton state={promptInputState} />
                 <Button onClick={e => masukkanKeranjang(e, itemDataPrompt)}>
-                  Keranjang <i className="fa-solid fa-cart-shopping"></i>
+                  Keranjang <FontAwesomeIcon icon={faCartShopping} />
                 </Button>
               </div>
             </div>

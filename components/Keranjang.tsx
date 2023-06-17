@@ -7,9 +7,11 @@ import Button from "@/material/Button";
 import RangeButton from "@/material/RangeButton";
 import { TmpCookiesObj } from "cookies-next/lib/types";
 import { getCookies } from "cookies-next";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Head from "next/head";
 import manipulateURL from "@/database/urlcontroller";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export interface ITabelKeranjang {
   className?: string;
@@ -195,13 +197,13 @@ export default function Keranjang({
                                 .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")}
                             </span>
                           </p>
-                          <i
-                            className="fa fa-trash hover:text-red-500 cursor-pointer"
+                          <FontAwesomeIcon icon={faTrash}
+                            className="hover:text-red-500 cursor-pointer"
                             aria-hidden="true"
                             onClick={(e: any): void =>
                               deleteHandler(e, data._id)
                             }
-                          ></i>
+                          />
                           <RangeButton
                             onClick={(e: any): void =>
                               awaitNewButtonState(index)

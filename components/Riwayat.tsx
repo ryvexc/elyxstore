@@ -6,6 +6,8 @@ import { getCookies } from "cookies-next";
 import ButtonStatus from "@/material/ButtonStatus";
 import manipulateURL from "@/database/urlcontroller";
 import Head from "next/head";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStore } from "@fortawesome/free-solid-svg-icons";
 
 export interface IDataHistory {
   id: string;
@@ -146,7 +148,7 @@ export default function Riwayat({ className }: IRiwayatProps): JSX.Element {
                               .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")}
                           </p>
                           <p className="text-sm mt-1 opacity-80">
-                            <i className="fa-solid fa-store mr-1"></i>
+                            <FontAwesomeIcon icon={faStore} className="mr-1" />
                             {barang.toko}
                           </p>
                         </div>

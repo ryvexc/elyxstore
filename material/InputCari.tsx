@@ -1,6 +1,8 @@
 import React from "react";
 import { getCookies } from "cookies-next";
 import { TmpCookiesObj } from "cookies-next/lib/types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 export default function InputCari({
   state,
@@ -33,10 +35,10 @@ export default function InputCari({
     </form>
     <form action={action} method={method}>
       <label htmlFor="cari_value" className="absolute mt-2 ml-2">
-        <i
+        <FontAwesomeIcon icon={faMagnifyingGlass}
           ref={labelRef}
-          className="duration-300 fa-solid fa-magnifying-glass text-[#ffffffca]"
-        ></i>
+          className="duration-300 text-[#ffffffca]"
+        />
       </label>
       <input
         onSubmit={e => submitEvent(e)}

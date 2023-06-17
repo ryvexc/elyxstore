@@ -6,7 +6,7 @@ module.exports = async (req: NextApiHandler, res: NextApiResponse) => {
     const client = await clientPromise;
     const db = client.db("ryve_store");
 
-    res.status(200).json(await db.collection("accounts").find({}).toArray());
+    res.status(200).json(await db.collection("users").find().toArray());
   } catch (e) {
     console.log(e);
   }
