@@ -22,10 +22,10 @@ export default async function handler(
     });
 
     if (!result.acknowledged) {
-      response.redirect("/result?success=false");
+      response.writeHead(302, { location: "/result?success=false" });
       throw result;
     }
-    response.redirect("/result?success=true");
+    response.writeHead(302, { location: "/result?success=true" });
   } catch (e) {
     console.error(e);
   }

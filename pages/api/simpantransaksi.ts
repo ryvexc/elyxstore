@@ -62,6 +62,6 @@ export default async function handler(
     .deleteMany({ username: request.body.username });
 
   if (insertHistoryResult.insertedId && deleteResult.deletedCount > 0)
-    response.redirect("/history");
-  else response.redirect(request.headers.referer!);
+    response.writeHead(302, { location: "/history" });
+  else response.writeHead(302, { location: request.headers.referer! });
 }

@@ -44,7 +44,7 @@ export default async function handler(
       );
 
       if (updateDataResult.modifiedCount > 0) {
-        response.redirect("/history");
+        response.writeHead(302, { location: "/history" });
       }
     } else {
       const insertResult = await db.collection("carts").insertOne({
@@ -56,7 +56,7 @@ export default async function handler(
         subtotal: parseInt(subtotal),
       });
 
-      response.redirect("/");
+      response.writeHead(302, { location: "/history" });
     }
 
     response.json({});

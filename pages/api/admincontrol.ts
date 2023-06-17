@@ -22,7 +22,7 @@ export default async function handler(
       { $set: { status: request.body.status } }
     );
 
-    response.redirect("/admin");
+    response.writeHead(302, { location: "/admin" });
   } catch (err) {
     console.error(err);
     response.status(500).json({ error: "Internal Server Error" });
